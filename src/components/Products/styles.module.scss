@@ -1,0 +1,139 @@
+.container {
+  background: #212124;
+  border-radius: 10px;
+
+  .products {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+
+    .header,
+    .product {
+      display: grid;
+      padding: 20px;
+      border-bottom: 1px solid #2d2d2d;
+
+      @media (max-width: 800px) {
+        gap: 10px;
+      }
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      > p {
+        &:first-child {
+          grid-column: 1 / span 2;
+
+          @media (max-width: 800px) {
+            grid-column: 1 / span 1;
+          }
+        }
+
+        color: #fdfdfd;
+        font-size: 1rem;
+      }
+    }
+
+    .header > p {
+      color: #849147;
+      background: #161718;
+      padding: 10px;
+      border-radius: 10px;
+      width: fit-content;
+    }
+
+    .product {
+      display: grid;
+      padding: 20px;
+      border-bottom: 1px solid #2d2d2d;
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      > p {
+        &:first-child {
+          grid-column: 1 / span 2;
+
+          @media (max-width: 800px) {
+            grid-column: 1 / span 1;
+          }
+        }
+
+        color: #fdfdfd;
+        font-size: 1rem;
+      }
+
+      .actions {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 1.2rem;
+
+        * {
+          cursor: pointer;
+        }
+      }
+
+      .edit {
+        color: #377d22;
+      }
+
+      .eye {
+        color: #896c94;
+      }
+
+      .delete {
+        color: #e73323;
+      }
+    }
+
+    &[data-column-count="7"] li {
+      grid-template-columns: repeat(7, 1fr);
+
+      @media (max-width: 800px) {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    &[data-column-count="6"] li {
+      grid-template-columns: repeat(6, 1fr);
+
+      @media (max-width: 800px) {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+  }
+
+  .disabled {
+    p {
+      opacity: 0.5;
+    }
+
+    .edit {
+      opacity: 0.5;
+      color: #a0a0a0 !important;
+      pointer-events: none;
+    }
+
+    .eye {
+      opacity: 1;
+    }
+
+    .delete {
+      opacity: 0.5;
+      color: #a0a0a0 !important;
+      pointer-events: none;
+    }
+  }
+}
+
+.skeleton {
+  padding: 20px;
+}
+
+[data-react-loading-container="true"] {
+  overflow: hidden;
+  border-radius: 10px;
+}

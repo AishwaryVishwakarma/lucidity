@@ -1,0 +1,101 @@
+.modal {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 100;
+
+  .container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #292b27;
+    padding: 20px;
+    border-radius: 10px;
+    z-index: 101;
+    color: #fdfdfd;
+
+    @media (max-width: 800px) {
+      width: 90%;
+    }
+  }
+
+  .close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: transparent;
+    border: none;
+    color: #b2cc4a;
+    font-size: 1.8rem;
+    cursor: pointer;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .name {
+    font-size: 1rem;
+    margin: 10px 0;
+  }
+
+  form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin: 30px 0;
+
+    @media (max-width: 800px) {
+      grid-template-columns: 1fr;
+    }
+
+    > div {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    label {
+      font-size: 1rem;
+    }
+
+    input {
+      min-width: 250px;
+      background: #3f413d;
+      color: #fdfdfd;
+      padding: 10px;
+      border: none;
+      border-radius: 10px;
+      outline: none;
+    }
+  }
+
+  .actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+
+    button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 10px;
+      outline: none;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    .cancel {
+      background: transparent;
+      color: #b2cc4a;
+    }
+
+    .save {
+      background: #434541;
+      color: #fdfdfd;
+    }
+  }
+}

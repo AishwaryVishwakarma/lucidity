@@ -1,0 +1,85 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+.container {
+  background: #161718;
+  min-height: 100vh;
+  padding: 30px 8%;
+
+  .switch {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+
+    p {
+      color: #fdfdfd;
+      font-size: 1.2rem;
+    }
+
+    .control {
+      --height: 15px;
+      --width: 50px;
+      display: block;
+      border-radius: 50px;
+      height: var(--height);
+      width: var(--width);
+      position: relative;
+      isolation: isolate;
+      cursor: pointer;
+      background: #5b5c5d;
+      transition: all 0.3s ease-in-out;
+      margin-block: 10px;
+
+      @media (max-width: 800px) {
+        --height: 25px;
+        --width: 60px;
+      }
+
+      &::after {
+        --radius: 10px;
+        content: "";
+        position: absolute;
+        z-index: 1;
+        aspect-ratio: 1/1;
+        height: calc(2 * var(--radius));
+        background: #e0e0e0;
+        border-radius: 50%;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 0;
+        transition: inherit;
+
+        @media (max-width: 800px) {
+          --radius: 10px;
+        }
+      }
+
+      &:has(input:checked) {
+        background: #3c451d;
+
+        &::after {
+          transform: translate(calc(var(--width) - (2 * var(--radius))), -50%);
+          background: #6e7f2c;
+        }
+      }
+    }
+
+    input {
+      opacity: 0;
+      height: 0;
+      width: 0;
+    }
+  }
+
+  h1 {
+    color: #fdfdfd;
+    text-align: left;
+    font-size: 2rem;
+    margin-top: 50px;
+  }
+}
