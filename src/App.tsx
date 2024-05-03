@@ -6,6 +6,10 @@ import { TbShoppingCartOff, TbShoppingCart, TbApps } from 'react-icons/tb';
 import Products from './components/Products/Products';
 import useInventory from './hooks/useInventory';
 
+/**
+ * Renders the main application component.
+ */
+
 function App() {
   const { products, totalItems, loading, totalValue, outOfStock, category } =
     useInventory();

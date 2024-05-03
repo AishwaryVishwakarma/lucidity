@@ -10,6 +10,9 @@ interface EditProductProps extends React.HTMLAttributes<HTMLDivElement> {
   closeModal: () => void;
 }
 
+/**
+ * Edit Product modal component that allows the user to edit a product.
+ */
 const EditProduct: React.FC<EditProductProps> = ({
   product,
   closeModal,

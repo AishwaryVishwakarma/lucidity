@@ -78,6 +78,10 @@ const skeletonConfig: SkeletonConfig = [
   },
 ];
 
+/**
+ * Renders a list of products.
+ */
+
 const Products: React.FC<ProductsProps> = ({
   products,
   isAdmin,

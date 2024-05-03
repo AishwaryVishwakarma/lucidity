@@ -17,6 +17,10 @@ const initialState = {
   category: {},
 } as InventoryState;
 
+/**
+ * Represents the inventory slice of the Redux store.
+ */
+
 export const inventory = createSlice({
   name: 'inventory',
   initialState,

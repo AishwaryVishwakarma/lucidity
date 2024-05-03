@@ -2,6 +2,8 @@ import { configureStore } from '@reduxjs/toolkit';
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 import inventroyReducer from './features/inventorySlice';
 
+// Create a Redux store
+
 export const store = configureStore({
   reducer: {
     inventory: inventroyReducer,

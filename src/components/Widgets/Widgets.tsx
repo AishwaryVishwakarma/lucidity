@@ -10,6 +10,10 @@ type WidgetsProps = {
   } | null)[];
 } & React.HTMLAttributes<HTMLDivElement>;
 
+/**
+ * Renders a collection of widgets based on the provided configuration.
+ */
+
 const Widgets: React.FC<WidgetsProps> = (data) => {
   const { config, className, ...rest } = data ?? {};
 

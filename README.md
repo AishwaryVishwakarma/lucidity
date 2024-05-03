@@ -1,30 +1,39 @@
-# React + TypeScript + Vite
+# Lucidity
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Lucidity is a web application built using Vite, React with TypeScript, and Redux. It serves as a management tool for inventory, allowing users to view, add, edit, and delete products. The project is structured with separate components for widgets and the product table, and it utilizes global state management with Redux to handle inventory data.
 
-Currently, two official plugins are available:
+## Installation
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+To get started with Lucidity, follow these steps:
 
-## Expanding the ESLint configuration
+1. Clone the repository to your local machine.
+2. Navigate to the project directory.
+3. Run `npm install` to install all dependencies.
+4. Start the development server by running `npm run dev`.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Project Structure
 
-- Configure the top-level `parserOptions` property like this:
+- **Root File**: `main.tsx`
+- **Root Component**: `App.tsx`
+- **Components**:
+  - Widgets Section
+  - Product Table Section
+  - Edit Modal/Popup (Separate Component)
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+## Global State (Inventory)
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+The application utilizes Redux to manage a global state called `inventory`. This state stores the product data fetched from an API, as well as additional metrics such as total items, total value, out of stock count, and category count. CRUD operations on products trigger updates to these metrics.
+
+## Components
+
+### Widgets Section
+
+The widgets section displays various metrics related to the inventory, such as total items, total value, out of stock count, and category count.
+
+### Product Table Section
+
+The product table section presents a tabular view of the inventory, allowing users to perform CRUD operations on individual products.
+
+### Edit Modal/Popup
+
+The edit modal or popup component provides a form for editing product details. It is invoked with local product data and updates the global state upon submission.
