@@ -38,7 +38,6 @@ export const inventory = createSlice({
         return {
           ...product,
           id: nanoid(),
-          outOfStock: false,
           disabled: false,
         };
       });
@@ -53,13 +52,22 @@ export const inventory = createSlice({
       state.products = state.products.map((product) => {
         if (product.id === action.payload) {
           const newDisabled = !product.disabled;
+          const newCategoryCount =
+            (state.category[product.category] || 0) + (newDisabled ? -1 : 1);
 
           // Update the total items, out of stock and category count
           state.totalItems += newDisabled
             ? -product.quantity
             : product.quantity;
           state.outOfStock += newDisabled ? 1 : -1;
-          state.category[product.category] += newDisabled ? -1 : 1;
+
+          // If the category count is 0, delete the category
+          if (newCategoryCount <= 0) {
+            delete state.category[product.category];
+          } else {
+            state.category[product.category] = newCategoryCount;
+          }
+
           state.totalValue += newDisabled
             ? -parseInt(product.value.slice(1), 10) || 0
             : parseInt(product.value.slice(1), 10) || 0;
